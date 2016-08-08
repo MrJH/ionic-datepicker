@@ -1,8 +1,16 @@
 <ion-modal-view class="ionic_datepicker_modal">
-  <ion-header-bar class="header">
-    <h1 class="title">{{selctedDateEpoch | date : mainObj.dateFormat}}</h1>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <button class="button buttonNoBorder icon ion-android-close" ng-click="closeIonicDatePickerModal()" type="button"></button>
+    <h1 class="title ng-binding" style="left: 90px; right: 85px;">{{mainObj.titleLabel}}</h1>
   </ion-header-bar>
   <ion-content class="ionic_datepicker_modal_content">
+
+    <div class="row text-center">
+      <h4 class="title">
+        {{selctedDateEpoch | date : mainObj.dateFormat}}
+      </h4>
+    </div>
+
     <div class="">
       <div class="row text-center">
         <div class="col col-10 left_arrow" ng-click="prevMonth()">
@@ -61,14 +69,11 @@
   </ion-content>
   <ion-footer-bar class="footer">
     <div class="row padding_zero">
-      <button class="button button-clear button-block button_set" ng-if="!mainObj.closeOnSelect"
-              ng-click="setIonicDatePickerDate()">{{mainObj.setLabel}}
-      </button>
       <button class="button button-clear button-block button_today"  ng-if="mainObj.showTodayButton"
               ng-click="setIonicDatePickerTodayDate()">{{mainObj.todayLabel}}
       </button>
-      <button class="button button-clear button-block button_close"
-              ng-click="closeIonicDatePickerModal()">{{mainObj.closeLabel}}
+      <button class="button button-clear button-block button_set" ng-if="!mainObj.closeOnSelect"
+              ng-click="setIonicDatePickerDate()">{{mainObj.setLabel}}
       </button>
     </div>
   </ion-footer-bar>

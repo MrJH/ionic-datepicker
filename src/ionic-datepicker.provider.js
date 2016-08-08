@@ -221,6 +221,11 @@ angular.module('ionic-datepicker.provider', [])
         var buttons = [];
         delete $scope.fromDate;
         delete $scope.toDate;
+        // console.log("ipObj.inputDate", ipObj.inputDate);
+        if(ipObj.inputDate) {
+          // console.log("use ipObj.inputDate as date!");
+          $scope.selctedDateEpoch = ipObj.inputDate;
+        }
 
         $scope.mainObj = angular.extend({}, config, ipObj);
         if ($scope.mainObj.from) {
